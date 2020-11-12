@@ -6,8 +6,7 @@ name: Bootcamp_2020
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
-
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,11 +23,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Installing Node
         uses: actions/setup-node@v2-beta
-        with:
-          node-version:12  
+        with: node-version:12
 
       # Runs a set of commands using the runners shell
       - name: Installing Surge
         run: npm install --global surge
       - name: Deploying using surge
-        run:  surge ./ boot2020camp.surge.sh --token ${{ secrets.surge_token }}
+        run: surge ./ saif-bootcamp.surge.sh --token ${{ secrets.surge_token }}
